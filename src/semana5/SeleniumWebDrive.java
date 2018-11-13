@@ -10,10 +10,16 @@ package semana5;
  *
  *  Com esses metodos que vocÃª criou, tente abrir a sua timesheet
  */
-pubic class SeleniumWebDrive{
 
-    public static void main(String[] args) {
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.ChromeDriver;
+public class SeleniumWebDrive{
 
-
+	public static void main(String[] args) {
+	System.setProperty("webdriver.chrome.driver", "C:\\users\\nattskug\\downloads\\chromedriver.exe"); //agora entendi como variáveis de ambiente poderiam se aplicar em código do primeiro desafio
+	WebDriver driver=new ChromeDriver();
+	driver.get("https://onecognizant.cognizant.com");
+	Thread.sleep(9000);
+	System.out.println(driver.getTitle());
     }
 }
