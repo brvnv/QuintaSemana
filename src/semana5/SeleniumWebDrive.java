@@ -12,29 +12,27 @@ package semana5;
  */
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.WebElement;
 
 public class SeleniumWebDrive{
 
 	public static void main(String[] args) {
-		String driverPath="C:\\users\\lenovo\\downloads\\chromedriver.exe";
-		String id="me mude";
+		String driverPath="C:\\users\\690968\\downloads\\IEDriverServer.exe";
+		String id="690968";
 		String senha="me mude";
-		String projeto="";
+		String projeto="1000230777";
 		int horasTrabalhadas=8;
 
 		System.out.println("Não se preocupe, seu timesheet será lançado a tempo.");
-	System.setProperty("webdriver.chrome.driver", driverPath); //agora entendi como variáveis de ambiente poderiam se aplicar em código do primeiro desafio
-	ChromeOptions params=new ChromeOptions();
-	params.addArguments("--Silent"); //não parece estar funcionando
-	WebDriver driver=new ChromeDriver(params);
+	System.setProperty("webdriver.ie.driver", driverPath); //agora entendi como variáveis de ambiente poderiam se aplicar em código do primeiro desafio
+	WebDriver driver=new InternetExplorerDriver();
 	driver.get("https://onecognizant.cognizant.com");
 	if(driver.getTitle().equals("Cognizant Gateway")) foraDaIntranet();
 //	else procedeIntranet();
+	}
 	
-	static void foraDaIntranet() {
+	public static void foraDaIntranet() {
 		System.out.println("Imagino o quanto isto está atrasado.");
 			if(temIdESenha()==false) {
 				System.out.println("Não tenho seu ID nem sua senha. Irei billar seus projetos para mim");
@@ -46,5 +44,9 @@ public class SeleniumWebDrive{
 		//PasswordCustom
 		//Log-On
 	}
+	
+	public static boolean temIdESenha() {
+		if((id!="me mude") && (senha!="me mude")) return true;
+		return false;
+	}
     }
-}
